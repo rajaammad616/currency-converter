@@ -1,0 +1,38 @@
+/* CurrencyConverter specific styles */
+
+.currency-converter {
+  /* Styles handled in App.css for better organization */
+}
+
+.converter-header {
+  /* Styles handled in App.css */
+}
+
+.converter-form {
+  /* Styles handled in App.css */
+}
+
+.swap-button-container {
+  /* Styles handled in App.css */
+}
+
+.swap-button {
+  /* Styles handled in App.css */
+}
+
+.convert-button {
+  /* Styles handled in App.css */
+}
+
+.result-display {
+  /* Styles handled in App.css */
+}
+
+.result {
+  /* Styles handled in App.css */
+}
+
+/* Additional responsive styles if needed */
+@media (max-width: 640px) {
+  /* Styles handled in App.css */
+}

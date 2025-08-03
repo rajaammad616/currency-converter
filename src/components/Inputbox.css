@@ -1,0 +1,172 @@
+.currency-input-container {
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.input-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input-wrapper {
+  display: flex;
+  border: 2px solid #475569;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: rgba(30, 41, 59, 0.5);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.input-wrapper:hover {
+  border-color: #64748b;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.input-wrapper:focus-within {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2), 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.amount-input {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background-color: transparent;
+  color: #f8fafc;
+}
+
+.amount-input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.amount-input:disabled {
+  background-color: rgba(51, 65, 85, 0.5);
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+.currency-select {
+  padding: 1rem;
+  border: none;
+  border-left: 2px solid #475569;
+  background-color: rgba(51, 65, 85, 0.5);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  cursor: pointer;
+  outline: none;
+  min-width: 100px;
+  transition: all 0.3s ease;
+}
+
+.currency-select:disabled {
+  background-color: rgba(51, 65, 85, 0.8);
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+.currency-select:hover:not(:disabled) {
+  background-color: rgba(71, 85, 105, 0.5);
+}
+
+.currency-select:focus {
+  background-color: rgba(71, 85, 105, 0.5);
+}
+
+/* Style the select dropdown options */
+.currency-select option {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  font-weight: 500;
+  padding: 0.5rem;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .input-wrapper {
+    flex-direction: column;
+  }
+
+  .currency-select {
+    border-left: none;
+    border-top: 2px solid #475569;
+    min-width: auto;
+  }
+
+  .amount-input,
+  .currency-select {
+    padding: 0.875rem;
+  }
+}
+
+/* Light mode styles for future toggle functionality */
+[data-theme="light"] .input-label {
+  color: #374151;
+}
+
+[data-theme="light"] .input-wrapper {
+  border-color: #e5e7eb;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .input-wrapper:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .input-wrapper:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .amount-input {
+  color: #1f2937;
+}
+
+[data-theme="light"] .amount-input::placeholder {
+  color: #9ca3af;
+}
+
+[data-theme="light"] .amount-input:disabled {
+  background-color: #f9fafb;
+  color: #6b7280;
+}
+
+[data-theme="light"] .currency-select {
+  border-left-color: #e5e7eb;
+  background-color: #f8fafc;
+  color: #374151;
+}
+
+[data-theme="light"] .currency-select:disabled {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+[data-theme="light"] .currency-select:hover:not(:disabled) {
+  background-color: #f1f5f9;
+}
+
+[data-theme="light"] .currency-select:focus {
+  background-color: #f1f5f9;
+}
+
+[data-theme="light"] .currency-select option {
+  background-color: white;
+  color: #374151;
+}
