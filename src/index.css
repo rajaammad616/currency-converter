@@ -72,32 +72,3 @@ button:focus-visible {
 [data-theme="light"] {
   color-scheme: light;
 }
-
-[data-theme="light"] body {
-  background: var(--bg-primary);
-}
-
-[data-theme="light"] h1 {
-  color: var(--text-primary);
-}
-
-[data-theme="light"] button {
-  background-color: var(--bg-secondary);
-  color: var(--text-primary);
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: var(--text-primary);
-    background: var(--bg-primary);
-  }
-
-  a:hover {
-    color: var(--text-primary);
-  }
-
-  button {
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
-  }
-}
