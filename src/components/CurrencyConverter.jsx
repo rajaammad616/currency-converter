@@ -6,10 +6,10 @@ import useCurrencyInfo from '../hooks/useCurrencyInfo';
 
 function CurrencyConverter() {
 
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState('1');
   const [from, setFrom] = useState("USD");
   const [to, setTo] = useState("PKR");
-  const [convertedAmount, setConvertedAmount] = useState("");
+  const [convertedAmount, setConvertedAmount] = useState(0);
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem('currency-converter-theme');
     return savedTheme || 'dark';
@@ -27,21 +27,17 @@ function CurrencyConverter() {
     setTheme(prevTheme => prevTheme === 'dark' ? 'light' : 'dark');
   };
 
-
-
   const swapCurrency = () => {
     setFrom(to);
     setTo(from);
-    setAmount(convertedAmount);
-    setConvertedAmount(amount);
-  }
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  useEffect(() => {
     if (amount && currencyInfo[to]) {
-      setConvertedAmount(amount * currencyInfo[to]);
+      const result = amount * currencyInfo[to];
+      setConvertedAmount(result);
     }
-  }
+  }, [amount, from, to, currencyInfo]);
 
   return (
     <>
@@ -59,7 +55,7 @@ function CurrencyConverter() {
           <p>Convert between different currencies with real-time exchange rates</p>
         </div>
 
-        <form action="">
+        <form onSubmit={(e) => e.preventDefault()}>
           <div>
             <Inputbox
               label="From"
@@ -73,12 +69,11 @@ function CurrencyConverter() {
               currencyDisable={false}
             />
           </div>
-          <button type="button" onClick={swapCurrency}>SWAP</button>
+          <button type="button" className="swap-button" onClick={swapCurrency}>SWAP</button>
           <div>
             <Inputbox
               label="To"
-              amount={convertedAmount}
-              onAmountChange={setConvertedAmount}
+              amount={convertedAmount.toFixed(2)}
               onCurrencyChange={setTo}
               selectCurrency={to}
               currencyOptions={options}
@@ -87,9 +82,6 @@ function CurrencyConverter() {
               currencyDisable={false}
             />
           </div>
-          <button type='submit' onClick={handleSubmit} disabled={!amount || !currencyInfo[to]}>
-            Convert {from} to {to}
-          </button>
         </form>
       </div>
     </>
